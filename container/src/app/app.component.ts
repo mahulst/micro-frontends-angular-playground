@@ -8,7 +8,7 @@ import { FeatureRegistry } from "./feature-registry";
 })
 export class AppComponent {
   constructor(featureRegistry: FeatureRegistry) {
-    featureRegistry.loadFeature("http://localhost:8008/main.js");
+    featureRegistry.loadFeature("http://localhost:8002/main.js");
   }
   title = "container";
 }

@@ -1,18 +1,12 @@
-const path = require('path');
-const {Externals} = require('share-loader');
+const webpack = require("webpack");
+const path = require("path");
+
 module.exports = {
-  externals: [
-    Externals({
-      namespace: 'container-app',
-      modules: [/@angular/]
+  plugins: [
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require("./manifest.json"),
+      // scope: "xyz",
     })
-  ],
-  output: {
-    filename: '[name].js',
-    path: path.resolve('./dist'),
-    chunkFilename: '[name].js',
-  },
-  optimization: {
-    runtimeChunk: false,
-  }
-}
+  ]
+};
